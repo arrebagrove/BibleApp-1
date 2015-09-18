@@ -8,5 +8,9 @@ namespace ALEX.Bible
 {
     class Bible
     {
+        string _title;
+
+
+        public string Title { get { return _title; } set { _title = value; } }
     }
 }
