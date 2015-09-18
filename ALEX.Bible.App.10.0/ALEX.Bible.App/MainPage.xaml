@@ -1,0 +1,102 @@
+﻿<Page
+    x:Class="ALEX.Bible.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ALEX.Bible"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <!--
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.PrimaryCommands>
+                <AppBarButton x:Name="_selBibleMenu" x:Uid="SelBible">
+                    <AppBarButton.Icon>
+                        <BitmapIcon UriSource="ms-appx:///Assets/Menu/Bibles64x64.png" />
+                    </AppBarButton.Icon>
+                    <AppBarButton.Flyout>
+                        <Flyout x:Name="_titleSelectFlyout">
+                            <ListBox x:Name="_titleSelect"
+                                Style="{StaticResource PageHeaderSelect}">
+                                <!- SelectionChanged="_titleSelect_SelectionChanged"> ->
+                                <ListBoxItem>Test1</ListBoxItem>
+                                <ListBoxItem>Test2</ListBoxItem>
+                            </ListBox>
+                        </Flyout>
+                    </AppBarButton.Flyout>
+                </AppBarButton>
+                <AppBarButton x:Name="_navigateMenu" x:Uid="Navigate">
+                    <AppBarButton.Icon>
+                        <BitmapIcon UriSource="ms-appx:///Assets/Menu/Books64x64.png" />
+                    </AppBarButton.Icon>
+                    <AppBarButton.Flyout>
+                        <Flyout x:Name="_navigateFlyout"> 
+                            <!- Opening="_navigateFlyout_Opening" ->
+                            <TextBox x:Name="_navigateTbx" 
+                                      MinWidth="300" Header="Enter Reference"/>
+                                    <!- TextChanged="_navigateTbx_TextChanged" ->
+                                    <!- KeyDown="_navigateTbx_KeyDown"->
+                        </Flyout>
+                    </AppBarButton.Flyout>
+                </AppBarButton>
+                <AppBarButton x:Name="_prevBookMenu" x:Uid="PrevBook"> <!- Click="PreviousBookClick" ->
+                    <AppBarButton.Icon>
+                        <BitmapIcon UriSource="ms-appx:///Assets/Menu/PrevBook64x64.png" />
+                    </AppBarButton.Icon>
+                </AppBarButton>
+                <AppBarButton x:Name="_prevChapMenu" x:Uid="PrevChap"> <!- Click="PreviousChapterClick" ->
+                    <AppBarButton.Icon>
+                        <BitmapIcon UriSource="ms-appx:///Assets/Menu/PrevChapter64x64.png" />
+                    </AppBarButton.Icon>
+                </AppBarButton>
+                <AppBarButton x:Name="_nextChapMenu" x:Uid="NextChap"> <!- Click="NextChapterClick"> ->
+                    <AppBarButton.Icon>
+                        <BitmapIcon UriSource="ms-appx:///Assets/Menu/NextChapter64x64.png" />
+                    </AppBarButton.Icon>
+                </AppBarButton>
+                <AppBarButton x:Name="_nextBookMenu" x:Uid="NextBook"> <!- Click="NextBookClick" ->
+                    <AppBarButton.Icon>
+                        <BitmapIcon UriSource="ms-appx:///Assets/Menu/NextBook64x64.png" />
+                    </AppBarButton.Icon>
+                </AppBarButton>
+            </CommandBar.PrimaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+    -->
+    <Grid Background="LightBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="Aqua">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Bible Title" Grid.Column="1" HorizontalAlignment="Stretch" TextAlignment="Center"/>
+            <Button Grid.Column="0" x:Name="_menuButton" Click="_menuButton_Click">
+                <SymbolIcon/>
+            </Button>
+            <Button Grid.Column="2" x:Name="_favoritesButton" Click="_favoritesButton_Click">
+                <SymbolIcon/>
+            </Button>
+        </Grid>
+        <ScrollViewer Background="White" Grid.Row="1" MaxWidth="800">
+            <RichTextBlock>
+                <Paragraph>
+                    <Span>Some Title</Span>
+                </Paragraph>
+                <Paragraph>
+                    <Span>Some text. Some text. Some text. Some text. Some text. Some text. Some text. Some text. Some text. Some text. Some text.</Span>
+                </Paragraph>
+            </RichTextBlock>
+        </ScrollViewer>
+        <local:MenuPanel Grid.Row="1" Width="300" x:Name="_menuPanel" HorizontalAlignment="Left"/>
+        <StackPanel Grid.Row="1" Background="Red" Width="100" HorizontalAlignment="Right" x:Name="_favoritesPanel">
+            <TextBlock>Favorites</TextBlock>
+        </StackPanel>
+        <local:NavigationPanel Grid.Row="2"/>
+    </Grid>
+</Page>
